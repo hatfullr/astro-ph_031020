@@ -1,0 +1,24 @@
+import numpy as np
+from scipy.integrate import simps
+
+data = np.loadtxt("cloud.dat")
+x = data[:,0]
+y = data[:,1]
+z = data[:,2]
+rho = data[:,3]
+
+x_uniq = np.unique(x)
+y_uniq = np.unique(y)
+z_uniq = np.unique(z)
+
+Nx = len(x_uniq)
+Ny = len(y_uniq)
+Nz = len(z_uniq)
+
+colden = np.zeros(shape=(Nx,Ny))
+
+for i in range(0,Nx):
+    for j in range(0,Ny):
+        for k in range(0,Nz):
+        print(i*Nz*Ny + j*Nz + k)
+        #colden[i][j] = simps(rho[i
